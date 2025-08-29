@@ -1,1 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Odor+Mean+Chey&family=Protest+Strike&display=swap");
 @import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default, luhcalmtheme;
+}
+
+@plugin "daisyui/theme" {
+  name: "luhcalmtheme";
+  default: false;
+  prefersdark: false;
+  color-scheme: "dark";
+  --color-base-100: oklch(98% 0.001 106.423);
+  --color-base-200: oklch(97% 0.001 106.424);
+  --color-base-300: oklch(92% 0.003 48.717);
+  --color-base-content: oklch(20% 0.042 265.755);
+  --color-primary: #fadfb0;
+  --color-primary-content: oklch(26% 0.079 36.259);
+  --color-secondary: oklch(83% 0.128 66.29);
+  --color-secondary-content: oklch(28% 0.066 53.813);
+  --color-accent: oklch(0.7277 0.149 33.2);
+  --color-accent-content: oklch(13% 0.028 261.692);
+  --color-neutral: oklch(70% 0.01 56.259);
+  --color-neutral-content: oklch(21% 0.006 56.043);
+  --color-info: oklch(70% 0.165 254.624);
+  --color-info-content: oklch(28% 0.091 267.935);
+  --color-success: oklch(76% 0.177 163.223);
+  --color-success-content: oklch(26% 0.051 172.552);
+  --color-warning: oklch(75% 0.183 55.934);
+  --color-warning-content: oklch(26% 0.079 36.259);
+  --color-error: oklch(70% 0.191 22.216);
+  --color-error-content: oklch(25% 0.092 26.042);
+  --radius-selector: 2rem;
+  --radius-field: 2rem;
+  --radius-box: 0.25rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.psr,
+h1 {
+  font-family: "Protest Strike", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.omc,
+h2 {
+  font-family: "Odor Mean Chey", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.mul,
+p {
+  font-family: "Mulish", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
