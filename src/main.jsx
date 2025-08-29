@@ -1,15 +1,19 @@
-import './index.css';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router';
-import App from './App';
+import "./index.css";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+import { RecipeProvider } from "./hooks/RecipeContext";
+import { CurrentPageProvider } from "./hooks/CurrentPageContext";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-      </Routes>
-    </BrowserRouter>
+    <RecipeProvider>
+      <CurrentPageProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </CurrentPageProvider>
+    </RecipeProvider>
   </React.StrictMode>
 );

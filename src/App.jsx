@@ -1,34 +1,29 @@
+import Navbar from "./components/Navbar.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import IngredientsPage from "./pages/IngredientsPage.jsx";
+import FavoritesPage from "./pages/FavoritesPage.jsx";
+import { Routes, Route, Link } from "react-router-dom";
+import { useRecipe } from "./hooks/RecipeContext.jsx";
+
 export default function App() {
+  const {data: recipes, loading} = useRecipe();
+
+  if (loading) {
+    return <div className="p-6">Loading recipes...</div>
+  }
+
+  if (!recipes || recipes.length === 0) {
+    return <div className="p-6">No recipes found...</div>
+  }
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        fontFamily: "sans-serif",
-        background: "#f9fafb",
-        color: "#111",
-        textAlign: "center",
-        padding: "2rem",
-      }}
-    >
-      <h1
-        style={{
-          fontSize: "2.5rem",
-          marginBottom: "0.5rem",
-          fontWeight: 600,
-        }}
-      >
-        Welcome to{" "}
-        <span style={{ color: "#2563eb" }}>pinoy-recipe-finder</span> 🚀
-      </h1>
-      <p style={{ fontSize: "1.1rem", color: "#555", marginBottom: "2rem" }}>
-        Your project is ready. Start building amazing things!
-      </p>
-      
-      
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/:id" element={<IngredientsPage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
+        <Route path="*" element={<div className="p-6">404 — page not found</div>} />
+      </Routes>
+    </>
   );
 }
